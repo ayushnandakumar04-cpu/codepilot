@@ -1,0 +1,97 @@
+#
+###
+
+POST  http://127.0.0.1:8000/accounts/admin/register/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "email":"Admin@gmail.com",
+    "password":"Admin$34",
+    "phone":"45680826432"
+}
+
+#
+###
+
+POST  http://127.0.0.1:8000/accounts/student/register/
+Content-Type: application/json
+
+{
+    "username":"Student1",
+    "email":"Student@gmail.com",
+    "password":"Student$345",
+    "phone":"409680826478"
+}
+
+#
+###
+POST http://127.0.0.1:8000/exams/admin/token/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "password":"Admin$34"
+}
+
+#
+###
+
+GET http://127.0.0.1:8000/exams/admin/assesment/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#
+###
+
+POST  http://127.0.0.1:8000/exams/admin/assesment/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    
+    "title": "Python Assessment",
+    "batch": "Batch 1",
+    "language": "python",
+    "exam_date": "2026-12-15",
+    "duration": 120,
+    "start_time": "11:00:00",
+    "status": "scheduled"
+
+}
+#
+###
+
+GET http://127.0.0.1:8000/exams/admin/assessment/1/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#
+###
+
+PUT http://127.0.0.1:8000/exams/admin/assessment/1/
+Content-Type: : application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    
+    "title": "Java Assessment",
+    "batch": "Batch 1",
+    "language": "java",
+    "exam_date": "2026-12-15",
+    "duration": 120,
+    "start_time": "11:00:00",
+    "status": "scheduled"
+
+}
+
+#
+###
+
+DELETE http://127.0.0.1:8000/exams/admin/assessment/1/
+Content-Type: : application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "id":2
+}
