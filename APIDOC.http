@@ -34,27 +34,31 @@ Content-Type: application/json
     "password":"Admin$34"
 }
 
+
+#=======Assessment======#
+
+
 #
 ###
 
-GET http://127.0.0.1:8000/exams/admin/assesment/
+GET http://127.0.0.1:8000/exams/admin1/assessment/
 Accept: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #
 ###
 
-POST  http://127.0.0.1:8000/exams/admin/assesment/
+POST  http://127.0.0.1:8000/exams/admin1/assessment/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
     
-    "title": "c Assessment",
+    "title": "c Assessment1",
     "batch": "Batch 2",
     "language": "c",
     "exam_date": "2026-12-15",
-    "duration": 120,
+    "duration": 2,
     "start_time": "10:00:00",
     "status": "completed"
 
@@ -62,14 +66,14 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-GET http://127.0.0.1:8000/exams/admin/assessment/1/
+GET http://127.0.0.1:8000/exams/admin1/assessment/1/
 Accept: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #
 ###
 
-PUT http://127.0.0.1:8000/exams/admin/assessment/2/
+PUT http://127.0.0.1:8000/exams/admin1/assessment/2/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
@@ -88,7 +92,66 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-DELETE http://127.0.0.1:8000/exams/admin/assessment/2/
+DELETE http://127.0.0.1:8000/exams/admin/assessment/18/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "id":15
+}
+
+#=========Question=========#
+
+#api call for list
+###
+
+GET http://127.0.0.1:8000/problem/question/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#api call for add
+###
+
+POST http://127.0.0.1:8000/problem/question/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "title": "python Addition",
+    "description": "Write a Python program to add two numbers.",
+    "score": 10,
+    "assessment": 1,
+    "sample_input": "5 ",
+    "sample_output": "8"
+}
+
+#retrieve
+###
+
+GET http://127.0.0.1:8000/problem/1/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#update
+###
+
+PUT http://127.0.0.1:8000/problem/1/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "title":"C Subtraction",
+    "description": "Write a C program to sub two numbers.",
+    "score":20,
+    "assessment": 1,
+    "sample_input": "6",
+    "sample_output": "8"
+}
+
+#delete
+###
+
+DELETE http://127.0.0.1:8000/problem/2/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 

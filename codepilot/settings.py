@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts',
     'exams',
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'Problem',
 ]
 
 MIDDLEWARE = [

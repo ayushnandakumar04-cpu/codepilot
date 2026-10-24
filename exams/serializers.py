@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from exams.models import Assessment
 from datetime import datetime,timezone,timedelta
-class AssesmentSerializers(serializers.ModelSerializer):
+class AssessmentSerializers(serializers.ModelSerializer):
 
     class Meta:
 
