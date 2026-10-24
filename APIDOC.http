@@ -50,13 +50,13 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
     
-    "title": "Python Assessment",
-    "batch": "Batch 1",
-    "language": "python",
+    "title": "c Assessment",
+    "batch": "Batch 2",
+    "language": "c",
     "exam_date": "2026-12-15",
     "duration": 120,
-    "start_time": "11:00:00",
-    "status": "scheduled"
+    "start_time": "10:00:00",
+    "status": "completed"
 
 }
 #
@@ -69,14 +69,14 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-PUT http://127.0.0.1:8000/exams/admin/assessment/1/
-Content-Type: : application/json
+PUT http://127.0.0.1:8000/exams/admin/assessment/2/
+Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
     
     "title": "Java Assessment",
-    "batch": "Batch 1",
+    "batch": "Batch 3",
     "language": "java",
     "exam_date": "2026-12-15",
     "duration": 120,
@@ -88,8 +88,8 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-DELETE http://127.0.0.1:8000/exams/admin/assessment/1/
-Content-Type: : application/json
+DELETE http://127.0.0.1:8000/exams/admin/assessment/2/
+Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
