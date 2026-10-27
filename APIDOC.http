@@ -26,7 +26,7 @@ Content-Type: application/json
 
 #
 ###
-POST http://127.0.0.1:8000/exams/admin/token/
+POST http://127.0.0.1:8000/exams/token/
 Content-Type: application/json
 
 {
@@ -41,14 +41,14 @@ Content-Type: application/json
 #
 ###
 
-GET http://127.0.0.1:8000/exams/admin1/assessment/
+GET http://127.0.0.1:8000/exams/assessment/
 Accept: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #
 ###
 
-POST  http://127.0.0.1:8000/exams/admin1/assessment/
+POST  http://127.0.0.1:8000/exams/assessment/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
@@ -66,14 +66,14 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-GET http://127.0.0.1:8000/exams/admin1/assessment/1/
+GET http://127.0.0.1:8000/exams/assessment/1/
 Accept: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #
 ###
 
-PUT http://127.0.0.1:8000/exams/admin1/assessment/2/
+PUT http://127.0.0.1:8000/exams/assessment/2/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
@@ -92,7 +92,7 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 #
 ###
 
-DELETE http://127.0.0.1:8000/exams/admin/assessment/18/
+DELETE http://127.0.0.1:8000/exams/assessment/18/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
@@ -102,17 +102,11 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #=========Question=========#
 
-#api call for list
-###
-
-GET http://127.0.0.1:8000/problem/question/
-Accept: application/json
-Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #api call for add
 ###
 
-POST http://127.0.0.1:8000/problem/question/
+POST http://127.0.0.1:8000/problem/assessment/1/question/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
@@ -120,41 +114,41 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
     "title": "python Addition",
     "description": "Write a Python program to add two numbers.",
     "score": 10,
-    "assessment": 1,
-    "sample_input": "5 ",
-    "sample_output": "8"
+    "question_no":1,
+    "sample_input": "num1=5,num2=3",
+    "sample_output": "res=8"
 }
 
 #retrieve
 ###
 
-GET http://127.0.0.1:8000/problem/1/
+GET http://127.0.0.1:8000/problem/question/10/
 Accept: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 #update
 ###
 
-PUT http://127.0.0.1:8000/problem/1/
+PUT http://127.0.0.1:8000/problem/question/10/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
     "title":"C Subtraction",
     "description": "Write a C program to sub two numbers.",
-    "score":20,
+    "score":5,
     "assessment": 1,
-    "sample_input": "6",
-    "sample_output": "8"
+    "sample_input": "6 4",
+    "sample_output": "2"
 }
 
 #delete
 ###
 
-DELETE http://127.0.0.1:8000/problem/2/
+DELETE http://127.0.0.1:8000/problem/question/11/
 Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
-    "id":2
+    "id":7
 }

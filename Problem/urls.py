@@ -1,7 +1,6 @@
 from django.urls import path
-from Problem.views import QuestionListCreateView,QuestionListRetrieveView
+from Problem.views import QuestionCreateView,QuestionRetrieveUpdateDeleteView
 urlpatterns=[
-    path('question/',QuestionListCreateView.as_view()),
-    path('<int:pk>/',QuestionListRetrieveView.as_view())
-
+    path('assessment/<int:pk>/question/',QuestionCreateView.as_view()),
+    path('question/<int:pk>/',QuestionRetrieveUpdateDeleteView.as_view())
 ]
