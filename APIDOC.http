@@ -175,13 +175,12 @@ Authorization: Token 65c1d51fb2dec228d32ca1b3d91241995fa73ba5
 #
 ###
 
-POST http://127.0.0.1:8000/evaluation/assessment/1/answer/
+POST http://127.0.0.1:8000/evaluation/submission/8/answer/
 Content-Type: application/json
 Authorization: Token 65c1d51fb2dec228d32ca1b3d91241995fa73ba5
 
 {
-    "answer_text":"This is my answer.",
-    "marks_awarded":5,
-    "feedback":"Good Answer"
+    "question":8,  
+    "answer_text":"print('hello')"
  
 }

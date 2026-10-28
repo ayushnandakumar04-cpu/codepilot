@@ -20,5 +20,5 @@ class AnswerSerializer(serializers.ModelSerializer):
         model=Answer
 
         fields="__all__"
-        
-        read_only_fields=["id","submission","question","evaluated_at"]
+
+        read_only_fields=["id","submission","marks_awarded","feedback","evaluated_at"]

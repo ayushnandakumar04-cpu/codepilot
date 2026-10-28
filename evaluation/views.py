@@ -24,34 +24,12 @@ class AnswerStartView(APIView):
     permission_classes=[IsStudentUser]
 
 
-    def post(self, request, pk=None):
-
-            qs = Assessment.objects.get(id=pk)
-
-            submission_obj = Submission.objects.get(
-                assessment=qs,
-                student=request.user
-            )
-
-            question_obj = Question.objects.get(
-                id=request.data.get('question'),
-                assessment=qs
-            )
-
-            form_data = request.data
-
-            serializer_instance = AnswerSerializer(data=form_data)
-
-            if serializer_instance.is_valid():
-
-                serializer_instance.save(
-                    submission=submission_obj,
-                    question=question_obj
-                )
-
-                return Response(serializer_instance.data)
-
-            else:
-                return Response(serializer_instance.errors)
-
-            
+    def post(self,request,pk=None):
+        submission_obj=get_object_or_404(Submission,id=pk)
+        form_data=request.data
+        serializer_instance=AnswerSerializer(data=form_data)
+        if serializer_instance.is_valid():
+            serializer_instance.save(submission=submission_obj)
+            return Response(data=serializer_instance.data)
+        else:
+            return Response(data=serializer_instance.errors)
