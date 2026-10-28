@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from evaluation.models import Answer
 from evaluation.models import Submission
 class SubmissionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,4 +11,14 @@ class SubmissionSerializer(serializers.ModelSerializer):
     #     for f in fields.values():
     #         f.read_only=True
     #     return f
-       #answer view
+    #answer view
+
+class AnswerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model=Answer
+
+        fields="__all__"
+        
+        read_only_fields=["id","submission","question","evaluated_at"]
