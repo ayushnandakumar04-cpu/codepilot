@@ -18,10 +18,10 @@ POST  http://127.0.0.1:8000/accounts/student/register/
 Content-Type: application/json
 
 {
-    "username":"Student1",
-    "email":"Student@gmail.com",
-    "password":"Student$345",
-    "phone":"409680826478"
+    "username":"Ash124",
+    "email":"ashwin2@gmail.com",
+    "password":"ashwin$645",
+    "phone":"9846904167"
 }
 
 #
@@ -115,8 +115,8 @@ Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
     "description": "Write a Python program to add two numbers.",
     "score": 10,
     "question_no":1,
-    "sample_input": "num1=5,num2=3",
-    "sample_output": "res=8"
+    "sample_input": "hello",
+    "sample_output": "hello"
 }
 
 #retrieve
@@ -134,7 +134,7 @@ Content-Type: application/json
 Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
 
 {
-    "title":"C Subtraction",
+    "title":"write a c program",
     "description": "Write a C program to sub two numbers.",
     "score":5,
     "assessment": 1,
@@ -161,26 +161,92 @@ POST http://127.0.0.1:8000/exams/token/
 Content-Type: application/json
 
 {
-    "username":"Student1",
-    "password":"Student$345"
+    "username":"ayush2",
+    "password":"ayush$645"
 }
 
 #
 ###
 
-POST http://127.0.0.1:8000/evaluation/assessment/5/submit/
+POST http://127.0.0.1:8000/accounts/jwt/token/
 Content-Type: application/json
-Authorization: Token 65c1d51fb2dec228d32ca1b3d91241995fa73ba5
+
+{
+    "username":"Ash124",
+    "password":"ashwin$645"
+}
+
+#api call for update
+###
+
+PUT  http://127.0.0.1:8000/accounts/profile/update/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNjg4NjYwLCJpYXQiOjE3OTM2ODgzNjAsImp0aSI6IjE5YzljNzU5ZDg3NzQ3ZTY5MzZiMzQ0ZjI3ODI0MzhhIiwidXNlcl9pZCI6IjExIn0.5wkQ9F0NhUFDNqNsEvQrc9NDoJRMNOhG5lHcybpEcks
+
+{
+   "skills":"python",
+   "qualification":"Btech",
+   "passout_year":"2022",
+   "github_url":"http://github.com/ashwin",
+   "linkedin_url":"http://www.linkedin.com//in/ashwin"
+}
+ 
+
 
 #
 ###
 
-POST http://127.0.0.1:8000/evaluation/submission/8/answer/
+POST http://127.0.0.1:8000/accounts/jwt/token/refresh/
 Content-Type: application/json
-Authorization: Token 65c1d51fb2dec228d32ca1b3d91241995fa73ba5
 
 {
-    "question":8,  
+    "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MzY4OTE2NywiaWF0IjoxNzkzNjAyNzY3LCJqdGkiOiI3NDdkNGU4ODgyMmY0MDE1ODc5OWY4MjAxYTM2ZDhhOCIsInVzZXJfaWQiOiI3In0.Z4gIESucEtnB0vI03SmoKZF_58cS-ULJQnGDTFpN8xM"
+}
+#
+###
+
+POST http://127.0.0.1:8000/evaluation/assessment/5/submit/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNjAyOTE1LCJpYXQiOjE3OTM2MDI2MTUsImp0aSI6Ijg3ZWEyMWI2NzljNTRmNTQ5YTIyOWRhM2U5ZTcxNTNmIiwidXNlcl9pZCI6IjcifQ.r6Jxv7zyz1ymz-t9QTkla3y4CCya3bVx6ushOfNznp0
+#
+###
+POST http://127.0.0.1:8000/evaluation/submission/10/answer/
+Content-Type: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+{
+    "question":4,  
     "answer_text":"print('hello')"
  
+}
+
+#
+###
+
+GET http://127.0.0.1:8000/evaluation/submission/1/retrieve/
+Accept: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+#
+###
+
+PUT http://127.0.0.1:8000/evaluation/submission/1/
+Content-Type: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+{
+    "marks_awarded":2,
+    "feed_back":"poor"
+}
+
+#
+###
+
+PATCH http://127.0.0.1:8000/evaluation/answer/1/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "marks_awarded":6,
+    "feedback":"Good"
 }

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'Problem',
     'evaluation',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
