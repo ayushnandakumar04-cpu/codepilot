@@ -18,10 +18,15 @@ POST  http://127.0.0.1:8000/accounts/student/register/
 Content-Type: application/json
 
 {
+
     "username":"fars",
     "email":"thefarsin12@gmail.com",
     "password":"farsin$645",
     "phone":"789889766"
+    "username":"Ash124",
+    "email":"ashwin2@gmail.com",
+    "password":"ashwin$645",
+    "phone":"9846904167"
 }
 
 #
@@ -172,6 +177,7 @@ POST http://127.0.0.1:8000/accounts/jwt/token/
 Content-Type: application/json
 
 {
+
     "username":"9846090967",
     "password":"ashwin$645"
 }

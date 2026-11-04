@@ -1,5 +1,7 @@
 from django.db import models
+
 from django.core.mail import send_mail
+
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User(AbstractUser):
@@ -35,8 +37,8 @@ def create_student_profile(sender,instance,created,*args,**kwargs):
     if created and instance.role=="student":
 
         StudentProfile.objects.create(student=instance)
-
 post_save.connect(create_student_profile,sender=User)
+
 
 def send_invitation_mail(sender,instance,created,*args,**kwargs):
 
@@ -48,3 +50,5 @@ def send_invitation_mail(sender,instance,created,*args,**kwargs):
                   ["thefarsin12@gmail.com"],
                   )
 post_save.connect(send_invitation_mail,sender=User)
+
+
