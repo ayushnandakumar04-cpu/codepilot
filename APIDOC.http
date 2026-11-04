@@ -1,0 +1,252 @@
+#
+###
+
+POST  http://127.0.0.1:8000/accounts/admin/register/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "email":"Admin@gmail.com",
+    "password":"Admin$34",
+    "phone":"45680826432"
+}
+
+#
+###
+
+POST  http://127.0.0.1:8000/accounts/student/register/
+Content-Type: application/json
+
+{
+    "username":"fars",
+    "email":"thefarsin12@gmail.com",
+    "password":"farsin$645",
+    "phone":"789889766"
+}
+
+#
+###
+POST http://127.0.0.1:8000/exams/token/
+Content-Type: application/json
+
+{
+    "username":"Admin1",
+    "password":"Admin$34"
+}
+
+
+#=======Assessment======#
+
+
+#
+###
+
+GET http://127.0.0.1:8000/exams/assessment/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#
+###
+
+POST  http://127.0.0.1:8000/exams/assessment/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    
+    "title": "c Assessment1",
+    "batch": "Batch 2",
+    "language": "c",
+    "exam_date": "2026-12-15",
+    "duration": 2,
+    "start_time": "10:00:00",
+    "status": "completed"
+
+}
+#
+###
+
+GET http://127.0.0.1:8000/exams/assessment/1/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#
+###
+
+PUT http://127.0.0.1:8000/exams/assessment/2/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    
+    "title": "Java Assessment",
+    "batch": "Batch 3",
+    "language": "java",
+    "exam_date": "2026-12-15",
+    "duration": 120,
+    "start_time": "11:00:00",
+    "status": "scheduled"
+
+}
+
+#
+###
+
+DELETE http://127.0.0.1:8000/exams/assessment/18/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "id":15
+}
+
+#=========Question=========#
+
+
+#api call for add
+###
+
+POST http://127.0.0.1:8000/problem/assessment/1/question/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "title": "python Addition",
+    "description": "Write a Python program to add two numbers.",
+    "score": 10,
+    "question_no":1,
+    "sample_input": "hello",
+    "sample_output": "hello"
+}
+
+#retrieve
+###
+
+GET http://127.0.0.1:8000/problem/question/10/
+Accept: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+#update
+###
+
+PUT http://127.0.0.1:8000/problem/question/10/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "title":"write a c program",
+    "description": "Write a C program to sub two numbers.",
+    "score":5,
+    "assessment": 1,
+    "sample_input": "6 4",
+    "sample_output": "2"
+}
+
+#delete
+###
+
+DELETE http://127.0.0.1:8000/problem/question/11/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "id":7
+}
+
+
+
+#
+###
+POST http://127.0.0.1:8000/exams/token/
+Content-Type: application/json
+
+{
+    "username":"ayush2",
+    "password":"ayush$645"
+}
+
+#
+###
+
+POST http://127.0.0.1:8000/accounts/jwt/token/
+Content-Type: application/json
+
+{
+    "username":"9846090967",
+    "password":"ashwin$645"
+}
+
+#api call for update
+###
+
+PUT  http://127.0.0.1:8000/accounts/profile/update/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNjg4NjYwLCJpYXQiOjE3OTM2ODgzNjAsImp0aSI6IjE5YzljNzU5ZDg3NzQ3ZTY5MzZiMzQ0ZjI3ODI0MzhhIiwidXNlcl9pZCI6IjExIn0.5wkQ9F0NhUFDNqNsEvQrc9NDoJRMNOhG5lHcybpEcks
+
+{
+   "skills":"python",
+   "qualification":"Btech",
+   "passout_year":"2022",
+   "github_url":"http://github.com/ashwin",
+   "linkedin_url":"http://www.linkedin.com//in/ashwin"
+}
+ 
+
+
+#
+###
+
+POST http://127.0.0.1:8000/accounts/jwt/token/refresh/
+Content-Type: application/json
+
+{
+    "refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc5MzY4OTE2NywiaWF0IjoxNzkzNjAyNzY3LCJqdGkiOiI3NDdkNGU4ODgyMmY0MDE1ODc5OWY4MjAxYTM2ZDhhOCIsInVzZXJfaWQiOiI3In0.Z4gIESucEtnB0vI03SmoKZF_58cS-ULJQnGDTFpN8xM"
+}
+#
+###
+
+POST http://127.0.0.1:8000/evaluation/assessment/5/submit/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkzNjAyOTE1LCJpYXQiOjE3OTM2MDI2MTUsImp0aSI6Ijg3ZWEyMWI2NzljNTRmNTQ5YTIyOWRhM2U5ZTcxNTNmIiwidXNlcl9pZCI6IjcifQ.r6Jxv7zyz1ymz-t9QTkla3y4CCya3bVx6ushOfNznp0
+#
+###
+POST http://127.0.0.1:8000/evaluation/submission/10/answer/
+Content-Type: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+{
+    "question":4,  
+    "answer_text":"print('hello')"
+ 
+}
+
+#
+###
+
+GET http://127.0.0.1:8000/evaluation/submission/1/retrieve/
+Accept: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+#
+###
+
+PUT http://127.0.0.1:8000/evaluation/submission/1/
+Content-Type: application/json
+Authorization: Token 3af193c0013af3c046173aa69bbd9993ea9e816c
+
+{
+    "marks_awarded":2,
+    "feed_back":"poor"
+}
+
+#
+###
+
+PATCH http://127.0.0.1:8000/evaluation/answer/1/
+Content-Type: application/json
+Authorization: Token 6685c5556e84c64923f59555079514c31397dbfb
+
+{
+    "marks_awarded":6,
+    "feedback":"Good"
+}
